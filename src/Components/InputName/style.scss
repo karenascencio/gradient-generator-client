@@ -1,0 +1,20 @@
+.aside__inputcontainer{
+  display: flex;
+  flex-direction: column;
+  .aside__inputlabel{
+    font-size: small;
+    font-weight: 700;
+    color: #cb7d80;
+    margin: 6px 0px 3px;
+  }
+  .aside__inputbox{
+    border: 1px solid gainsboro;
+    padding: 4px 0px;
+    font-family: monospace;
+    color: gray;
+    &:focus{
+      border: 1px solid #cb7d80;
+    }
+
+  }
+}

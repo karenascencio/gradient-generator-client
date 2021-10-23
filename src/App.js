@@ -4,7 +4,10 @@ import './Sass/App.scss'
 // Hooks
 // My components
 import ColorBlock from './Components/ColorBlock'
+import StyleKeypad from './Components/StyleKeypad'
 import DirectionKeypad from './Components/DirectionKeypad'
+import ThemeKeypad from './Components/ThemeKeypad'
+import ActionButton from './Components/ActionButton'
 
 function App () {
   const [isActive, setIsActive] = useState(false)
@@ -22,8 +25,7 @@ function App () {
   return (
     <main>
       <div className='aside'>
-        <DirectionKeypad
-          radialOff=''
+        <ThemeKeypad
         />
       </div>
       <div>

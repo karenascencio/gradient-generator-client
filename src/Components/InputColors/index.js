@@ -1,11 +1,24 @@
 import React from 'react'
+// Styles
+import './style.scss'
 
 export default function InputColor (props) {
-  const { changeHandler } = props
+  const { changeHandler, labelText, inputId, inputName } = props
   return (
-    <div>
-      <label htmlFor='input-color' />
-      <input type='color' onChange={changeHandler} name='' id='input-color' />
+    <div className='aside__inputContainer--color'>
+      <label
+        className='aside__inputlabel--color'
+        htmlFor={inputId}
+      >
+        {labelText}
+      </label>
+      <input
+        className='aside__inputbox--color'
+        type='color'
+        onChange={changeHandler}
+        name={inputName}
+        id={inputId}
+      />
     </div>
   )
 }
