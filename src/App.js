@@ -1,24 +1,36 @@
-import logo from './logo.svg'
+import React, { useState } from 'react'
+// Styles
 import './Sass/App.scss'
+// Hooks
+// My components
+import ColorBlock from './Components/ColorBlock'
+import DirectionButtons from './Components/DirectionButtons'
 
 function App () {
+  const [isActive, setIsActive] = useState(false)
+  const [firstPickedColor, setFirstPickedColor] = useState('')
+
+  const buttonHandler = () => {
+    isActive ? setIsActive(false) : setIsActive(true)
+  }
+
+  const changeHandler = event => {
+    let color = event.target.value
+    setFirstPickedColor(color)
+  }
+
   return (
-    <div className='App'>
-      <header className='App-header'>
-        <img src={logo} className='App-logo' alt='logo' />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className='App-link'
-          href='https://reactjs.org'
-          target='_blank'
-          rel='noopener noreferrer'
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <main>
+      <div className='aside'>
+        <DirectionButtons />
+      </div>
+      <div>
+        <ColorBlock
+          colorOne=''
+          colorTwo=''
+        />
+      </div>
+    </main>
   )
 }
 
