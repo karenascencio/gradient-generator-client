@@ -10,7 +10,6 @@ import ThemeKeypad from './Components/ThemeKeypad'
 import ActionButton from './Components/ActionButton'
 
 function App () {
-  // const [isActive, setIsActive] = useState(false)
   const [firstPickedColor, setFirstPickedColor] = useState('pink')
   const [secondPickedColor, setSecondPickedColor] = useState('gray')
   const [gradientDirection, setGradientDirection] = useState('to bottom')
@@ -49,9 +48,12 @@ function App () {
           <div className='aside__keypads'>
             <StyleKeypad
               buttonHandler={styleButtonHandler}
+              styleState={gradientStyle}
             />
             <DirectionKeypad
               buttonHandler={directionButtonHandler}
+              directionState={gradientDirection}
+              styleState={gradientStyle}
             />
             <ThemeKeypad
               changeHandler={changeColorHandler}
