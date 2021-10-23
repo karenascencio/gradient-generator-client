@@ -3,7 +3,7 @@ import React from 'react'
 import './style.scss'
 
 export default function InputColor (props) {
-  const { changeHandler, labelText, inputId, inputName } = props
+  const { changeHandler, labelText, inputId, inputName, colorValue } = props
   return (
     <div className='aside__inputContainer--color'>
       <label
@@ -18,6 +18,7 @@ export default function InputColor (props) {
         onChange={changeHandler}
         name={inputName}
         id={inputId}
+        value={colorValue}
       />
     </div>
   )

@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
 // Styles
 import './Sass/App.scss'
-// Hooks
+// Dependencies
+import { randomHex } from 'randomize-hex'
 // My components
 import ColorBlock from './Components/ColorBlock'
 import StyleKeypad from './Components/StyleKeypad'
@@ -10,8 +11,8 @@ import ThemeKeypad from './Components/ThemeKeypad'
 import ActionButton from './Components/ActionButton'
 
 function App () {
-  const [firstPickedColor, setFirstPickedColor] = useState('pink')
-  const [secondPickedColor, setSecondPickedColor] = useState('gray')
+  const [firstPickedColor, setFirstPickedColor] = useState(randomHex())
+  const [secondPickedColor, setSecondPickedColor] = useState(randomHex())
   const [gradientDirection, setGradientDirection] = useState('to bottom')
   const [gradientStyle, setGradientStyle] = useState('linear-gradient')
 
@@ -57,6 +58,8 @@ function App () {
             />
             <ThemeKeypad
               changeHandler={changeColorHandler}
+              valueColorOne={firstPickedColor}
+              valueColorTwo={secondPickedColor}
             />
             <ActionButton
               buttonText='Save theme'

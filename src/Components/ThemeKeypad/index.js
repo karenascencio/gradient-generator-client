@@ -6,7 +6,7 @@ import InputName from '../InputName'
 import './style.scss'
 
 export default function ThemeKeypad (props) {
-  const { changeHandler } = props
+  const { changeHandler, valueColorOne, valueColorTwo } = props
   return (
     <div className='aside__themekeypad'>
       <h2 className='aside__themetitle'>
@@ -18,12 +18,14 @@ export default function ThemeKeypad (props) {
           inputId='color-one'
           inputName='colorOne'
           changeHandler={changeHandler}
+          colorValue={valueColorOne}
         />
         <InputColors
           labelText='Color two'
           inputId='color-two'
           inputName='colorTwo'
           changeHandler={changeHandler}
+          colorValue={valueColorTwo}
         />
       </div>
       <div className='aside__namescol'>
