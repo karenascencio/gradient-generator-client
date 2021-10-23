@@ -5,7 +5,7 @@ import OptionButton from '../OptionButton'
 import './style.scss'
 
 export default function StyleKeypad (props) {
-  const { isActive, buttonHandler } = props
+  const { styleState, buttonHandler } = props
   return (
     <div className='aside__stylekeypad'>
       <h2 className='aside__styletitle'>
@@ -14,13 +14,13 @@ export default function StyleKeypad (props) {
       <div className='aside__buttonrow'>
         <OptionButton
           buttonText='Linear'
-          isActive={isActive}
+          isActive={styleState === 'linear-gradient' && 'active'}
           buttonHandler={buttonHandler}
           buttonId='linear-gradient'
         />
         <OptionButton
           buttonText='Radial'
-          isActive={isActive}
+          isActive={styleState === 'radial-gradient' && 'active'}
           buttonHandler={buttonHandler}
           buttonId='radial-gradient'
         />
