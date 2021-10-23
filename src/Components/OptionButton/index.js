@@ -2,11 +2,11 @@ import React from 'react'
 import './style.scss'
 
 export default function OptionButton (props) {
-  const { buttonText, isActive, buttonHandler, radialOff, buttonId } = props
+  const { buttonText, isActive, buttonHandler, buttonId } = props
   return (
     <button
       id={buttonId}
-      className={`main__button ${isActive} ${radialOff}`}
+      className={`main__button ${isActive}`}
       onClick={buttonHandler}
     >
       {buttonText}
