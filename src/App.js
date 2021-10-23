@@ -4,7 +4,7 @@ import './Sass/App.scss'
 // Hooks
 // My components
 import ColorBlock from './Components/ColorBlock'
-import DirectionButtons from './Components/DirectionButtons'
+import DirectionKeypad from './Components/DirectionKeypad'
 
 function App () {
   const [isActive, setIsActive] = useState(false)
@@ -22,7 +22,9 @@ function App () {
   return (
     <main>
       <div className='aside'>
-        <DirectionButtons />
+        <DirectionKeypad
+          radialOff=''
+        />
       </div>
       <div>
         <ColorBlock

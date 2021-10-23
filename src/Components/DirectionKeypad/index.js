@@ -1,10 +1,12 @@
 import React from 'react'
+import { MdNorth, MdSouth, MdNorthWest, MdNorthEast, MdSouthWest, MdSouthEast, MdWest, MdEast, MdPanoramaFishEye } from "react-icons/md"
 // My components
 import OptionButton from '../OptionButton'
 // Styles
 import './style.scss'
 
-export default function DirectionButtons () {
+export default function DirectionKeypad (props) {
+  const { radialOff } = props
   return (
     <div className='aside__directionkeypad'>
       <h2 className='aside__directiontitle'>
@@ -12,35 +14,36 @@ export default function DirectionButtons () {
       </h2>
       <div className='aside__buttonrow'>
         <OptionButton
-          buttonText=''
+          buttonText={<MdNorthWest />}
         />
         <OptionButton
-          buttonText='↑'
+          buttonText={<MdNorth />}
         />
         <OptionButton
-          buttonText=''
-        />
-      </div>
-      <div className='aside__buttonrow'>
-        <OptionButton
-          buttonText='←'
-        />
-        <OptionButton
-          buttonText=''
-        />
-        <OptionButton
-          buttonText='→'
+          buttonText={<MdNorthEast />}
         />
       </div>
       <div className='aside__buttonrow'>
         <OptionButton
-          buttonText=''
+          buttonText={<MdWest />}
         />
         <OptionButton
-          buttonText='↓'
+          buttonText={<MdPanoramaFishEye />}
+          radialOff={radialOff}
         />
         <OptionButton
-          buttonText=''
+          buttonText={<MdEast />}
+        />
+      </div>
+      <div className='aside__buttonrow'>
+        <OptionButton
+          buttonText={<MdSouthWest />}
+        />
+        <OptionButton
+          buttonText={<MdSouth />}
+        />
+        <OptionButton
+          buttonText={<MdSouthEast />}
         />
       </div>
     </div>
