@@ -1,0 +1,14 @@
+.aside__inputContainer--color{
+  display: flex;
+  flex-direction: column;
+  .aside__inputlabel--color{
+    font-size: small;
+    font-weight: 700;
+    color: #cb7d80;
+    margin: 6px 0px 3px;
+  }
+  .aside__inputbox--color{
+    padding: 0px;
+    border: none;
+  }
+}

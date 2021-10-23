@@ -1,0 +1,27 @@
+.main__button{
+  background-color: white;
+  width: 5rem;
+  color: #cb7d80;
+  font-size: medium;
+  font-weight: 700;
+  cursor: pointer;
+  border: 1px solid gainsboro;
+  border-radius: 10px;
+  padding: 5px 8px; 
+  margin-top: 5px;
+  &:hover{
+    background-color: #fae0df;
+    color: white;
+    border: 1px solid #fae0df;
+  }
+}
+
+.active{
+  background-color: #fae0df;
+  color: white;
+  border: 1px solid #fae0df;
+}
+
+// .radialOff{
+//   visibility: hidden;
+// }
