@@ -16,9 +16,10 @@ function App () {
   const [gradientDirection, setGradientDirection] = useState('to bottom')
   const [gradientStyle, setGradientStyle] = useState('linear-gradient')
 
-  // const buttonHandler = () => {
-  //   isActive ? setIsActive(false) : setIsActive(true)
-  // }
+  const randomHandler = () => {
+    setFirstPickedColor(randomHex())
+    setSecondPickedColor(randomHex())
+  }
 
   const changeColorHandler = event => {
     const color = event.target.value
@@ -57,6 +58,7 @@ function App () {
               styleState={gradientStyle}
             />
             <ThemeKeypad
+              randomHandler={randomHandler}
               changeHandler={changeColorHandler}
               valueColorOne={firstPickedColor}
               valueColorTwo={secondPickedColor}
