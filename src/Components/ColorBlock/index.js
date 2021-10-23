@@ -1,14 +1,15 @@
 import React from 'react'
+// Styles
+import './style.scss'
 
 export default function ColorBlock (props) {
-  const { colorOne, colorTwo } = props
+  const { colorOne, colorTwo, gradientStyle, gradientDirection } = props
   return (
     <div
+      className='colorblock'
       style={
         {
-          backgroundImage: `linear-gradient(to bottom, ${'red'}, blue)`,
-          width: '500px',
-          height: '500px'
+          background: `${gradientStyle}(${gradientDirection}, ${colorOne}, ${colorTwo})`
         }
       }
     />

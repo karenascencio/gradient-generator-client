@@ -2,4 +2,32 @@
 
 *{
   font-family: 'Comfortaa', cursive;
+  main{
+    display: flex;
+    position: relative;
+    .aside{
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 400px;
+      height: 100vh;
+      overflow: scroll;
+      border: 1px solid gainsboro;
+      .aside__title{
+        background-color: #cb7d80;
+        color: white;
+        width: 200px;
+        margin-top: 2rem;
+      }
+      .aside__keypads{
+        padding: 1rem 2rem;
+      }
+    }
+    .colorblock{
+      position: absolute;
+      right: 0;
+      height: 100vh;
+      width: calc(100vw - 401px);
+    }
+  }
 }

@@ -10,28 +10,67 @@ import ThemeKeypad from './Components/ThemeKeypad'
 import ActionButton from './Components/ActionButton'
 
 function App () {
-  const [isActive, setIsActive] = useState(false)
-  const [firstPickedColor, setFirstPickedColor] = useState('')
+  // const [isActive, setIsActive] = useState(false)
+  const [firstPickedColor, setFirstPickedColor] = useState('pink')
+  const [secondPickedColor, setSecondPickedColor] = useState('gray')
+  const [gradientDirection, setGradientDirection] = useState('to bottom')
+  const [gradientStyle, setGradientStyle] = useState('linear-gradient')
 
-  const buttonHandler = () => {
-    isActive ? setIsActive(false) : setIsActive(true)
+  // const buttonHandler = () => {
+  //   isActive ? setIsActive(false) : setIsActive(true)
+  // }
+
+  const changeColorHandler = event => {
+    const color = event.target.value
+    const inputName = (event.target.name)
+    inputName === 'colorOne' ? setFirstPickedColor(color) : setSecondPickedColor(color)
   }
 
-  const changeHandler = event => {
-    let color = event.target.value
-    setFirstPickedColor(color)
+  const directionButtonHandler = event => {
+    const buttonId = event.target.id
+    buttonId && setGradientDirection(buttonId)
+  }
+
+  const styleButtonHandler = event => {
+    const buttonId = event.target.id
+    buttonId && setGradientStyle(buttonId)
   }
 
   return (
     <main>
       <div className='aside'>
-        <ThemeKeypad
-        />
+        <div className='aside__scroll'>
+          <h1 className='aside__title'>
+            Cute<br />
+            CSS<br />
+            Gradients<br />
+            Generator!
+          </h1>
+          <div className='aside__keypads'>
+            <StyleKeypad
+              buttonHandler={styleButtonHandler}
+            />
+            <DirectionKeypad
+              buttonHandler={directionButtonHandler}
+            />
+            <ThemeKeypad
+              changeHandler={changeColorHandler}
+            />
+            <ActionButton
+              buttonText='Save theme'
+            />
+            <ActionButton
+              buttonText='Copy CSS to clipboard'
+            />
+          </div>
+        </div>
       </div>
-      <div>
+      <div className='colorblock'>
         <ColorBlock
-          colorOne=''
-          colorTwo=''
+          colorOne={firstPickedColor}
+          colorTwo={secondPickedColor}
+          gradientStyle={gradientStyle}
+          gradientDirection={gradientDirection}
         />
       </div>
     </main>
