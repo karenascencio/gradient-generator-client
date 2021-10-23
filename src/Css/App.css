@@ -10,7 +10,7 @@
   position: absolute;
   top: 0;
   left: 0;
-  width: 400px;
+  width: 360px;
   height: 100vh;
   overflow: scroll;
   border: 1px solid gainsboro;
@@ -18,7 +18,8 @@
 * main .aside .aside__title {
   background-color: #cb7d80;
   color: white;
-  width: 200px;
+  font-weight: 300;
+  width: 190px;
   margin-top: 2rem;
 }
 * main .aside .aside__keypads {
@@ -28,5 +29,5 @@
   position: absolute;
   right: 0;
   height: 100vh;
-  width: calc(100vw - 401px);
+  width: calc(100vw - 361px);
 }

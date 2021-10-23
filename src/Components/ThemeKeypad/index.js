@@ -1,12 +1,15 @@
 import React from 'react'
+// Dependencies
+import { GiPerspectiveDiceSixFacesOne } from 'react-icons/gi'
 //My components
 import InputColors from '../InputColors'
 import InputName from '../InputName'
+import OptionButton from '../OptionButton'
 // Styles
 import './style.scss'
 
 export default function ThemeKeypad (props) {
-  const { changeHandler } = props
+  const { changeHandler, valueColorOne, valueColorTwo, randomHandler } = props
   return (
     <div className='aside__themekeypad'>
       <h2 className='aside__themetitle'>
@@ -18,12 +21,18 @@ export default function ThemeKeypad (props) {
           inputId='color-one'
           inputName='colorOne'
           changeHandler={changeHandler}
+          colorValue={valueColorOne}
         />
         <InputColors
           labelText='Color two'
           inputId='color-two'
           inputName='colorTwo'
           changeHandler={changeHandler}
+          colorValue={valueColorTwo}
+        />
+        <OptionButton
+          buttonText={<GiPerspectiveDiceSixFacesOne />}
+          buttonHandler={randomHandler}
         />
       </div>
       <div className='aside__namescol'>
