@@ -15,6 +15,7 @@ function App () {
   const [secondPickedColor, setSecondPickedColor] = useState(randomHex())
   const [gradientDirection, setGradientDirection] = useState('to bottom')
   const [gradientStyle, setGradientStyle] = useState('linear-gradient')
+  const [clipboardText, setClipboardText] = useState('Copy CSS to clipboard')
 
   const randomHandler = () => {
     setFirstPickedColor(randomHex())
@@ -35,6 +36,12 @@ function App () {
   const styleButtonHandler = event => {
     const buttonId = event.target.id
     buttonId && setGradientStyle(buttonId)
+  }
+
+  const clipboardButtonHandler = () => {
+    const gradientCSS = ` background: ${gradientStyle}(${gradientDirection}, ${firstPickedColor}, ${secondPickedColor})`
+    console.log(gradientCSS)
+    navigator.clipboard.writeText(gradientCSS)
   }
 
   return (
@@ -67,7 +74,8 @@ function App () {
               buttonText='Save theme'
             />
             <ActionButton
-              buttonText='Copy CSS to clipboard'
+              buttonText={clipboardText}
+              buttonHandler={clipboardButtonHandler}
             />
           </div>
         </div>

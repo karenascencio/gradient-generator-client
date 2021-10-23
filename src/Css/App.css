@@ -10,7 +10,7 @@
   position: absolute;
   top: 0;
   left: 0;
-  width: 400px;
+  width: 360px;
   height: 100vh;
   overflow: scroll;
   border: 1px solid gainsboro;
@@ -29,5 +29,5 @@
   position: absolute;
   right: 0;
   height: 100vh;
-  width: calc(100vw - 401px);
+  width: calc(100vw - 361px);
 }
