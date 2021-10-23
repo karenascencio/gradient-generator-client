@@ -42,6 +42,8 @@ function App () {
     const gradientCSS = ` background: ${gradientStyle}(${gradientDirection}, ${firstPickedColor}, ${secondPickedColor})`
     console.log(gradientCSS)
     navigator.clipboard.writeText(gradientCSS)
+    setClipboardText('Yay! Capied to clipboard!')
+    setTimeout(() => setClipboardText('Copy CSS to clipboard'), 2500)
   }
 
   return (
