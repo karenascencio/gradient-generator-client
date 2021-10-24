@@ -1,0 +1,26 @@
+.aside__themecard{
+  padding-bottom: 15px;
+  .aside__gradient-block{
+    height: 50px;
+    border-radius: 3px;
+  }
+  .aside__themesign{
+    color: gray;
+    margin-top: 3px;
+    margin-bottom: 4px;
+    font-size: small;
+    font-family: monospace;
+  }
+  .aside__themebutton{
+    background-color: white;
+    width: 100%;
+    color: #cb7d80;
+    border: 1px solid #cb7d80;
+    border-radius: 3px;
+    &:hover{
+      background-color: #cb7d80;
+      color: white;
+      border: 1px solid #cb7d80;
+    }
+  }
+}

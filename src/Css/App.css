@@ -25,6 +25,13 @@
 * main .aside .aside__keypads {
   padding: 1rem 2rem;
 }
+* main .aside .aside__keypads .aside__themesgrid .aside__themestitle {
+  margin-top: 2.5rem;
+  background-color: #cb7d80;
+  color: white;
+  padding: 8px 0px;
+  text-align: center;
+}
 * main .colorblock {
   position: absolute;
   right: 0;
