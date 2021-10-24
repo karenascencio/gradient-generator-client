@@ -3,6 +3,8 @@ import React, { useState, useEffect } from 'react'
 import './Sass/App.scss'
 // Dependencies
 import { randomHex } from 'randomize-hex'
+// api
+import { getThemes, postTheme } from './lib/api'
 // My components
 import ColorBlock from './Components/ColorBlock'
 import StyleKeypad from './Components/StyleKeypad'
@@ -17,13 +19,14 @@ function App () {
   const [gradientDirection, setGradientDirection] = useState('to bottom')
   const [gradientStyle, setGradientStyle] = useState('linear-gradient')
   const [clipboardText, setClipboardText] = useState('Copy CSS to clipboard')
+  const [postButtonMessage, setPostButtonMessage] = useState('Save theme')
   const [themeNames, setThemeNames] = useState({})
-  const [themeData, setThemeData] = useState({})
   const [communityThemes, setCommunityThemes] = useState([])
 
-  useEffect(() => {
-    setCommunityThemes([...communityThemes, themeData])
-  },[themeData])
+  useEffect(async () => {
+    const fetchedThemes = await getThemes()
+    setCommunityThemes(fetchedThemes)
+  }, [])
 
   const randomHandler = () => {
     setFirstPickedColor(randomHex())
@@ -51,22 +54,26 @@ function App () {
     setThemeNames({ ...themeNames, [name]: value })
   }
 
-  const addThemeButtonHandler = () => {
-    setThemeData({
+  const addThemeButtonHandler = async () => {
+    const themeToPost = {
       ...themeNames,
       colorOne: firstPickedColor,
       colorTwo: secondPickedColor,
       gradientDirection: gradientDirection,
       gradientStyle: gradientStyle
-    })
+    }
+    const postedTheme = await postTheme(themeToPost)
+    setPostButtonMessage('Yay! You posted a theme')
+    setTimeout(() => setPostButtonMessage('Save theme'), 1500)
+    const updatedThemes = await getThemes()
+    setCommunityThemes(updatedThemes)
   }
 
   const clipboardButtonHandler = () => {
     const gradientCSS = ` background: ${gradientStyle}(${gradientDirection}, ${firstPickedColor}, ${secondPickedColor})`
-    console.log(gradientCSS)
     navigator.clipboard.writeText(gradientCSS)
     setClipboardText('Yay! Capied to clipboard!')
-    setTimeout(() => setClipboardText('Copy CSS to clipboard'), 2500)
+    setTimeout(() => setClipboardText('Copy CSS to clipboard'), 1500)
   }
 
   const clipboardThemeHandler = event => {
@@ -102,7 +109,7 @@ function App () {
               textInputHandler={textInputHandler}
             />
             <ActionButton
-              buttonText='Save theme'
+              buttonText={postButtonMessage}
               buttonHandler={addThemeButtonHandler}
             />
             <ActionButton
@@ -116,9 +123,9 @@ function App () {
               <div className='aside__themeswrapper'>
                 {
                   communityThemes &&
-                    communityThemes.slice(1).map((theme, index) =>
+                    communityThemes.map(theme =>
                       <ThemeCard
-                        key={index}
+                        key={theme._id}
                         themeName={theme.themeName ? theme.themeName : 'untitled'}
                         creatorName={theme.creatorName ? theme.creatorName : 'anon'}
                         colorOne={theme.colorOne}
