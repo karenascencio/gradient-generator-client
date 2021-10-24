@@ -9,7 +9,7 @@ import OptionButton from '../OptionButton'
 import './style.scss'
 
 export default function ThemeKeypad (props) {
-  const { changeHandler, valueColorOne, valueColorTwo, randomHandler } = props
+  const { changeHandler, valueColorOne, valueColorTwo, randomHandler, textInputHandler } = props
   return (
     <div className='aside__themekeypad'>
       <h2 className='aside__themetitle'>
@@ -41,12 +41,14 @@ export default function ThemeKeypad (props) {
           labelText='Theme name'
           inputName='themeName'
           inputPlaceholder='Add a name to your theme...'
+          textInputHandler={textInputHandler}
         />
         <InputName
           inputId=''
           labelText='Creator name'
           inputName='creatorName'
           inputPlaceholder='Please, type your name here...'
+          textInputHandler={textInputHandler}
         />
       </div>
     </div>

@@ -22,6 +22,15 @@
       }
       .aside__keypads{
         padding: 1rem 2rem;
+        .aside__themesgrid{
+          .aside__themestitle{
+            margin-top: 2.5rem;
+            background-color: #cb7d80;
+            color: white;
+            padding: 8px 0px;
+            text-align: center;
+          }
+        }
       }
     }
     .colorblock{
