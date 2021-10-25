@@ -20,9 +20,9 @@ export default function StyleKeypad (props) {
         />
         <OptionButton
           buttonText='Radial'
-          isActive={styleState === 'radial-gradient' && 'active'}
+          isActive={styleState === '-moz-radial-gradient' && 'active'}
           buttonHandler={buttonHandler}
-          buttonId='radial-gradient'
+          buttonId='-moz-radial-gradient'
         />
       </div>
     </div>

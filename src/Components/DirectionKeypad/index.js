@@ -6,7 +6,7 @@ import OptionButton from '../OptionButton'
 import './style.scss'
 
 export default function DirectionKeypad (props) {
-  const { styleState, directionState, buttonHandler } = props
+  const { styleState, buttonHandler, directionActive } = props
   return (
     <div className='aside__directionkeypad'>
       <h2 className='aside__directiontitle'>
@@ -15,65 +15,74 @@ export default function DirectionKeypad (props) {
       <div className='aside__buttonrow'>
         <OptionButton
           buttonText={<MdNorthWest />}
-          isActive={directionState === 'to bottom right' && 'active'}
+          isActive={directionActive === 'north-west' && 'active'}
           buttonHandler={buttonHandler}
-          buttonId='to bottom right'
+          buttonId={styleState === 'linear-gradient' ? 'to bottom right' : 'left top'}
+          directionName='north-west'
         />
         <OptionButton
           buttonText={<MdNorth />}
-          isActive={directionState === 'to bottom' && 'active'}
+          isActive={directionActive === 'north' && 'active'}
           buttonHandler={buttonHandler}
-          buttonId='to bottom'
+          buttonId={styleState === 'linear-gradient' ? 'to bottom' : 'center top'}
+          directionName='north'
         />
         <OptionButton
           buttonText={<MdNorthEast />}
-          isActive={directionState === 'to bottom left' && 'active'}
+          isActive={directionActive === 'north-east' && 'active'}
           buttonHandler={buttonHandler}
-          buttonId='to bottom left'
+          buttonId={styleState === 'linear-gradient' ? 'to bottom left' : 'right top'}
+          directionName='north-east'
         />
       </div>
       <div className='aside__buttonrow'>
         <OptionButton
           buttonText={<MdWest />}
-          isActive={directionState === 'to right' && 'active'}
+          isActive={directionActive === 'west' && 'active'}
           buttonHandler={buttonHandler}
-          buttonId='to right'
+          buttonId={styleState === 'linear-gradient' ? 'to right' : 'left center'}
+          directionName='west'
         />
         {
-          styleState === 'radial-gradient' && (
+          styleState === '-moz-radial-gradient' && (
             <OptionButton
               buttonText={<MdPanoramaFishEye />}
-              isActive={directionState === 'circle' && 'active'}
+              isActive={directionActive === 'panorama' && 'active'}
               buttonHandler={buttonHandler}
               buttonId='circle'
+              directionName='panorama'
             />
           )
         }
         <OptionButton
           buttonText={<MdEast />}
-          isActive={directionState === 'to left' && 'active'}
+          isActive={directionActive === 'east' && 'active'}
           buttonHandler={buttonHandler}
-          buttonId='to left'
+          buttonId={styleState === 'linear-gradient' ? 'to left' : 'right center'}
+          directionName='east'
         />
       </div>
       <div className='aside__buttonrow'>
         <OptionButton
           buttonText={<MdSouthWest />}
-          isActive={directionState === 'to top right' && 'active'}
+          isActive={directionActive === 'south-west' && 'active'}
           buttonHandler={buttonHandler}
-          buttonId='to top right'
+          buttonId={styleState === 'linear-gradient' ? 'to top right' : 'left bottom'}
+          directionName='south-west'
         />
         <OptionButton
           buttonText={<MdSouth />}
-          isActive={directionState === 'to top' && 'active'}
+          isActive={directionActive === 'south' && 'active'}
           buttonHandler={buttonHandler}
-          buttonId='to top'
+          buttonId={styleState === 'linear-gradient' ? 'to top' : 'center bottom'}
+          directionName='south'
         />
         <OptionButton
           buttonText={<MdSouthEast />}
-          isActive={directionState === 'to top left' && 'active'}
+          isActive={directionActive === 'south-east' && 'active'}
           buttonHandler={buttonHandler}
-          buttonId='to top left'
+          buttonId={styleState === 'linear-gradient' ? 'to top left' : 'right bottom'}
+          directionName='south-east'
         />
       </div>
     </div>
