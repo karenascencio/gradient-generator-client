@@ -17,6 +17,7 @@ function App () {
   const [firstPickedColor, setFirstPickedColor] = useState(randomHex())
   const [secondPickedColor, setSecondPickedColor] = useState(randomHex())
   const [gradientDirection, setGradientDirection] = useState('to bottom')
+  const [directionActive, setDirectionActive] = useState('north')
   const [gradientStyle, setGradientStyle] = useState('linear-gradient')
   const [clipboardText, setClipboardText] = useState('Copy CSS to clipboard')
   const [postButtonMessage, setPostButtonMessage] = useState('Save theme')
@@ -41,6 +42,8 @@ function App () {
 
   const directionButtonHandler = event => {
     const buttonId = event.target.id
+    const buttonName = event.target.name
+    buttonName && setDirectionActive(buttonName)
     buttonId && setGradientDirection(buttonId)
   }
 
@@ -98,7 +101,7 @@ function App () {
             />
             <DirectionKeypad
               buttonHandler={directionButtonHandler}
-              directionState={gradientDirection}
+              directionActive={directionActive}
               styleState={gradientStyle}
             />
             <ThemeKeypad
